@@ -1,7 +1,7 @@
 import { getPeople, findHero } from "../actions"; // Import fetch methods from actions folder.
 
 // Hero object interface for getHero method.
-interface HeroInterface {
+export interface HeroInterface {
   hero: {
     name: string;
     height: string;
@@ -43,5 +43,32 @@ export const getHero = async (): Promise<HeroInterface | undefined> => {
     // If is some error, catch and call the next function with an error argument in this case it will be error handler.
   } catch (err) {
     console.log(err);
+  }
+};
+
+// Compare hero id from resources with id from request in userController.
+export const compareId = (heroUrl: Array<string> | string, id: string) => {
+  // Check if resources url are in array.
+  if (Array.isArray(heroUrl)) {
+    // Loop all urls.
+    const heroId = heroUrl.map((url) => {
+      // Split each url.
+      const urlSplit = url.split("/");
+      // Get id from url.
+      const heroId = urlSplit[urlSplit.length - 2];
+      // Return resources id in array.
+      return heroId;
+    });
+    // Compare ids from array with id from request.
+    const compareId = heroId.indexOf(id.toString()) >= 0;
+    // Return true or false.
+    return compareId;
+  } else {
+    // If heroUrl is a string, just split, get id and compare returning true or false.
+    const urlSplit = heroUrl.split("/");
+    // Get id from url.
+    const heroId = urlSplit[urlSplit.length - 2];
+    // Return true or false.
+    return heroId === id ? true : false;
   }
 };

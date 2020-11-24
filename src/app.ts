@@ -6,6 +6,7 @@ import config from "./config";
 const app: Application = express();
 
 import authRouter from "./routes/authRoutes";
+import userRouter from "./routes/userRoutes";
 
 // settings
 app.set("port", config.PORT);
@@ -16,6 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // routes
 app.use("/api/v1", authRouter);
+app.use("/api/v1", userRouter);
 
 // database connection
 mongoose
