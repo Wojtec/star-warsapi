@@ -45,8 +45,7 @@ Make sure that you are in correct path `/star-warsapi$` in your terminal and wri
 npm install
 ```
 
-Set up your mongoDB path URI other environments variables.
-
+Set up your mongoDB path URI and other environment variables.
 ```
 npm start
 ```
