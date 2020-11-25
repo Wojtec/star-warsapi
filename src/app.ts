@@ -1,10 +1,12 @@
-import dotenv from "dotenv";
+import dotenv from "dotenv"; // Import dotenv package
 dotenv.config();
-import express, { Application } from "express";
-import mongoose from "mongoose";
-import config from "./config";
+import express, { Application } from "express"; // Import express and interface Application
+import mongoose from "mongoose"; // Import mongoose
+import config from "./config"; // Import config with process environments.
+
 const app: Application = express();
 
+// Import routes
 import authRouter from "./routes/authRoutes";
 import userRouter from "./routes/userRoutes";
 

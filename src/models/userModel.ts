@@ -1,6 +1,13 @@
 import { Schema, model, Document } from "mongoose"; // Import classes from mongoose.
 import bcrypt from "bcrypt"; // Import bcrypt for encrypt password.
 
+/**
+ *
+ * MONGODB SCHEMA
+ * encryptPassword
+ * validatePassword
+ * */
+
 // User object interface, extends methods from Document class.
 export interface UserInterface extends Document {
   email: string;

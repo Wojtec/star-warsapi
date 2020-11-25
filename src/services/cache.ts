@@ -1,5 +1,14 @@
 import NodeCache from "node-cache"; // Import node cache from package.
 
+/**
+ *
+ * CACHE MECHANISM
+ * getCache
+ * del
+ * flush
+ *
+ * */
+
 // Set time 24 hours for cache mechanism.
 const cache = new NodeCache({ stdTTL: 60 * 60 * 24 });
 
@@ -21,10 +30,12 @@ export const getCache = async (
     return store;
   }
 };
+
 // Del data from cache by key.
 export const del = (keys: string) => {
   cache.del(keys);
 };
+
 // Delete all data from cache.
 export const flush = () => {
   cache.flushAll();

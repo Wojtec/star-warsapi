@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+  api:
+    container_name: starwars
+    restart: always
+    build: .
+    ports:
+      - "3000:3000"
+    links:
+      - mongo
+    volumes:
+      - .:/usr/app/dist
+  mongo:
+    container_name: mongodb
+    image: mongo
+    ports:
+      - "27017:27017"
+    logging:
+      driver: none

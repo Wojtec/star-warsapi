@@ -58,18 +58,19 @@ export const signUp = async (
     // Check if the user exists by email.
     const checkUser = await User.findOne({ email: user.email });
     // If the user exists, response 409 conflict, send the message.
-    if (checkUser)
+    if (checkUser) {
       return res
         .status(409)
         .send({ message: "This address email already exists." });
-
-    // Save model in database.
-    const savedUser = await user.save();
-    // Destructure an object and get a token that is returned from the method generateAccessToken.
-    const { token }: { token: string } = generateAccessToken(savedUser.id);
-    // Response status 200 set header "Authorization" with token and send user json.
-    res.status(200).header("Authorization", token).send(savedUser);
-    // If is some error, catch and call the next function with an error argument in
+    } else {
+      // Save model in database.
+      const savedUser = await user.save();
+      // Destructure an object and get a token that is returned from the method generateAccessToken.
+      const { token }: { token: string } = generateAccessToken(savedUser.id);
+      // Response status 200 set header "Authorization" with token and send user json.
+      res.status(200).header("Authorization", token).send(savedUser);
+      // If is some error, catch and call the next function with an error argument in
+    }
   } catch (err) {
     next(err);
   }
@@ -96,9 +97,9 @@ export const signIn = async (
     if (!validPassword)
       return res.status(400).send({ message: "Password is not valid." });
     // Destructure an object and get a token that is returned from the method generateAccessToken.
-    const { token }: { token: string } = generateAccessToken(findUser.id);
+    const token = generateAccessToken(findUser.id);
     // Response status 200 set header "Authorization" with token and send user json.
-    res.status(200).header("Authorization", token).send({ user: findUser });
+    res.status(200).header("Authorization", token.token).send(token);
     // If is some error, catch and call the next function with an error argument in this case it will be error handler.
   } catch (err) {
     next(err);

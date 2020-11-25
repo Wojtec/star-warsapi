@@ -1,6 +1,15 @@
 import { getPeople, findHero, getResources } from "../actions"; // Import fetch methods from actions folder.
 import { getCache } from "../services/cache"; // Import Cache service from services folder.
 
+/**
+ *
+ * UTILS FUNCITONS
+ * getHero
+ * compareId
+ * getApiResources
+ *
+ * */
+
 // Hero object interface for getHero method.
 export interface HeroInterface {
   hero: {

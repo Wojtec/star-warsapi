@@ -2,6 +2,12 @@ import { Router } from "express"; // Import router from express.
 
 const router: Router = Router(); // Assign router method.
 
+/**
+ *
+ * USER ROUTES
+ *
+ * */
+
 import { verifyToken } from "../middlewares/verifyToken"; // Import verifyToken middleware.
 import {
   getElemementsById,

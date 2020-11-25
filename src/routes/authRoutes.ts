@@ -2,6 +2,12 @@ import { Router } from "express";
 
 const router: Router = Router();
 
+/**
+ *
+ * AUTH ROUTES
+ *
+ * */
+
 import { signUp, signIn } from "../controllers/authController";
 
 // POST register route.
