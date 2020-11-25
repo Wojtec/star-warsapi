@@ -3,7 +3,25 @@ import { Router } from "express"; // Import router from express.
 const router: Router = Router(); // Assign router method.
 
 import { verifyToken } from "../middlewares/verifyToken"; // Import verifyToken middleware.
-import { getElemementsById } from "../controllers/userController"; // Import user controller.
+import {
+  getElemementsById,
+  getFilms,
+  getSpecies,
+  getVehicles,
+  getStarships,
+  getPlanets,
+} from "../controllers/userController"; // Import user controller.
+
+// GET films route.
+router.get("/films", verifyToken, getFilms);
+// GET species route.
+router.get("/species", verifyToken, getSpecies);
+// GET vehicles route.
+router.get("/vehicles", verifyToken, getVehicles);
+// GET starships route.
+router.get("/starships", verifyToken, getStarships);
+// GET planets route.
+router.get("/planets", verifyToken, getPlanets);
 
 // GET BY ID ROUTES
 // films by ID

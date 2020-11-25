@@ -2,6 +2,7 @@ import NodeCache from "node-cache"; // Import node cache from package.
 
 // Set time 24 hours for cache mechanism.
 const cache = new NodeCache({ stdTTL: 60 * 60 * 24 });
+
 // Method get cache with two parameters, key and callback storefunction.
 export const getCache = async (
   key: string | number,

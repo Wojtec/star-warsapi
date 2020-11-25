@@ -48,7 +48,7 @@ export const signUp = async (
       email: email,
       // Set password from the request.
       password: password,
-      // Set hero from util class method getHero().
+      // Set hero from util method getHero().
       hero: await getHero(),
     });
 

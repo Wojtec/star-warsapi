@@ -1,4 +1,5 @@
-import { getPeople, findHero } from "../actions"; // Import fetch methods from actions folder.
+import { getPeople, findHero, getResources } from "../actions"; // Import fetch methods from actions folder.
+import { getCache } from "../services/cache"; // Import Cache service from services folder.
 
 // Hero object interface for getHero method.
 export interface HeroInterface {
@@ -22,7 +23,7 @@ export interface HeroInterface {
   };
 }
 
-//Get hero number for authController register method.
+// Get hero number for authController register method.
 export const getHero = async (): Promise<HeroInterface | undefined> => {
   // try catch block.
   try {
@@ -46,7 +47,7 @@ export const getHero = async (): Promise<HeroInterface | undefined> => {
   }
 };
 
-// Compare hero id from resources with id from request in userController.
+// Compare hero id from resources, with id from request in userController.
 export const compareId = (heroUrl: Array<string> | string, id: string) => {
   // Check if resources url are in array.
   if (Array.isArray(heroUrl)) {
@@ -64,11 +65,31 @@ export const compareId = (heroUrl: Array<string> | string, id: string) => {
     // Return true or false.
     return compareId;
   } else {
-    // If heroUrl is a string, just split, get id and compare returning true or false.
+    // If heroUrl is a string, split, get id and compare, returning true or false.
     const urlSplit = heroUrl.split("/");
     // Get id from url.
     const heroId = urlSplit[urlSplit.length - 2];
     // Return true or false.
     return heroId === id ? true : false;
+  }
+};
+
+// Helper function expresion to get
+export const getApiResources = async (
+  name: Array<string> | string
+): Promise<object> => {
+  // Check if name is array.
+  if (Array.isArray(name)) {
+    // If it is true loop all films and get resources then wait for all promises are resolved and return data.
+    return await Promise.all(
+      // Loop all array elements.
+      name.map(async (ele) => {
+        // Use cache mechanism and get data from API.
+        return await getCache(ele, async () => await getResources(ele));
+      })
+    );
+  } else {
+    // If it is false just get resources from API or cache.
+    return await getCache(name, async () => await getResources(name));
   }
 };
