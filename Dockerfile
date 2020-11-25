@@ -17,7 +17,7 @@ COPY . .
 
 # Typescript
 RUN npm run build
-COPY .env ./dist
+# COPY .env ./dist
 WORKDIR /usr/app/dist
 
 

@@ -1,0 +1,220 @@
+{
+	"info": {
+		"_postman_id": "16d7d600-733b-4bfb-8c7c-7b8f5fd2a9b9",
+		"name": "starwars",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "test@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "1234",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "test@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "1234",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getFilms",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmJlZDQ5MTViZDFhMjAwMjY2MzM1OGIiLCJpYXQiOjE2MDYzNDMzMDQsImV4cCI6MTYwNjQyOTcwNH0.ynQ9D8F48AOITW8JI7-0yG6MUO7WsWeITW65tVLxm4s",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/films",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"films"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getSpecies",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmJkYzJmY2Q5MTRjNGRmN2Q4NGQ4MzQiLCJpYXQiOjE2MDYyNzE3NTAsImV4cCI6MTYwNjM1ODE1MH0.mfgkYri-A7XHJ-YMKnOlW4Az_mFxIaDszfRxmHAAbG4",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/species/26",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"species",
+						"26"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getVehicles",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmJkOWQ5ZjM4MWJkNWQyMjIzMDFjNDgiLCJpYXQiOjE2MDYyNjIxOTksImV4cCI6MTYwNjM0ODU5OX0.tWxpSjHCoE4LKAYGKLYQ9j4CfCsY_WkLp8htYZpbnyE",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/vehicles",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"vehicles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getPlanets",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmJkOWQ5ZjM4MWJkNWQyMjIzMDFjNDgiLCJpYXQiOjE2MDYyNjIxOTksImV4cCI6MTYwNjM0ODU5OX0.tWxpSjHCoE4LKAYGKLYQ9j4CfCsY_WkLp8htYZpbnyE",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/planets/49",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"planets",
+						"49"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getStarships",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmJkOWQ5ZjM4MWJkNWQyMjIzMDFjNDgiLCJpYXQiOjE2MDYyNjIxOTksImV4cCI6MTYwNjM0ODU5OX0.tWxpSjHCoE4LKAYGKLYQ9j4CfCsY_WkLp8htYZpbnyE",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/starships/48",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"starships",
+						"48"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
